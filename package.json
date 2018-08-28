@@ -1,8 +1,11 @@
 {
   "name": "coinview",
   "version": "1.0.0",
+  "main": "dist/coinview.common.js",
   "scripts": {
-    "build": "rollup -c",
+    "build:common": "TARGET=common rollup -c",
+    "build:window": "TARGET=window rollup -c",
+    "build": "npm run build:common && npm run build:window",
     "start": "npm run serve",
     "test": "npm run lint && npm run test:coverage"
   },
