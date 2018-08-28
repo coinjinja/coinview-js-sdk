@@ -1,0 +1,21 @@
+{
+  "name": "coinview",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "rollup -c",
+    "start": "npm run serve",
+    "test": "npm run lint && npm run test:coverage"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "rollup": "^0.65.0",
+    "rollup-plugin-babel": "^4.0.2",
+    "uglify-js": "^3.4.8"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
+  }
+}
