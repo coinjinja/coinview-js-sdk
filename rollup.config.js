@@ -1,10 +1,12 @@
 import babel from 'rollup-plugin-babel'
+import { uglify } from 'rollup-plugin-uglify'
 
 function getConfig (target) {
   const config = {
     input: 'src/index.js',
     plugins: [
-      babel({exclude: 'node_modules/**'})
+      babel({exclude: 'node_modules/**'}),
+      uglify()
     ]
   }
   if (target === 'common') {
