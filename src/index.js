@@ -10,4 +10,4 @@ if (window) {
 
 export default coinview
 
-export const Methods = _methods
+export const methods = _methods

@@ -6,10 +6,6 @@ export default interface Coinview {
   }
 }
 
-export interface Methods {
-  [key: number]: string
-}
-
 interface App {
   name: string
 }
