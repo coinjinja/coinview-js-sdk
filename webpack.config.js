@@ -6,7 +6,7 @@ module.exports = {
   mode: 'production',
   output: {
     path: path.resolve(__dirname, './dist'),
-    filename: 'coinview.js',
+    filename: 'coinview.min.js',
   },
   module: {
     rules: [

@@ -1,14 +1,17 @@
 {
   "name": "coinview",
   "version": "1.0.0",
-  "main": "dist/coinview.js",
+  "main": "dist/index.js",
   "scripts": {
-    "build": "webpack --config webpack.config.js -p",
+    "build:window": "webpack --config webpack.config.js -p",
+    "build:common": "babel src --out-dir dist",
+    "build": "rm -rf dist/* && npm run build:window && npm run build:common",
     "dev": "webpack --config webpack.config.js -w",
     "start": "npm run serve",
     "test": "npm run lint && npm run test:coverage"
   },
   "devDependencies": {
+    "@babel/cli": "^7.0.0",
     "@babel/core": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "babel-loader": "^8.0.0",
