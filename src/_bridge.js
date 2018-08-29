@@ -1,11 +1,10 @@
-import {VERSION} from './_const'
+import uuidv4 from 'uuid/v4'
+import { VERSION } from './_const'
 
 const callbacks = {}
 
 function _send (method, payload, cb) {
-  method = 'coinview.' + method
-  const id = Math.random().toString(36).slice(2)
-  const uuid = `${method}#${id}`
+  const uuid = uuidv4()
   callbacks[uuid] = cb
   const data = {method, uuid}
   if (payload) {
@@ -25,10 +24,10 @@ function send (method, payload) {
     }
 
     function sending () {
-      if (!!window.originalPostMessage) {
+      if (window.originalPostMessage) {
         _send(method, payload, cb)
       } else {
-        setTimeout(post, 10)
+        setTimeout(sending, 10)
       }
     }
 
@@ -62,13 +61,12 @@ function receive (data) {
   }
 }
 
-function init (payload, handleMessage) {
-  const id = Math.random().toString(36).slice(2)
-  const name = '__coinview_' + id
-  receive.handleMessage = handleMessage
-  window[name] = receive
+function init (payload = {}) {
+  window.document.addEventListener('message', (e) => {
+    const { data } = e
+    receive(data)
+  })
 
-  payload['$callback'] = name
   payload['$version'] = VERSION
   payload['$url'] = location.href
   return send('init', payload)

@@ -12,7 +12,7 @@ Object.defineProperty(coinview, 'app', {
 })
 
 coinview.init = function (payload) {
-  return bridge.init(payload, handleMessage).then(data => {
+  return bridge.init(payload).then(data => {
     _app = data
     return coinview
   })
@@ -31,10 +31,6 @@ export function register (method) {
     }
     return bridge.send(method, payload)
   }
-}
-
-function handleMessage (message) {
-  // TODO
 }
 
 export default coinview
