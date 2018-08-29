@@ -40,12 +40,8 @@ function receive (data) {
     try {
       data = JSON.parse(data)
     } catch (e) {
-      console.error('Invalid data:', data)
+      return console.error('Invalid data:', data)
     }
-  }
-
-  if (data.message && receive.handleMessage) {
-    receive.handleMessage(data.message)
   }
 
   if (data.uuid) {
@@ -69,7 +65,7 @@ function init (payload = {}) {
 
   payload['$version'] = VERSION
   payload['$url'] = location.href
-  return send('init', payload)
+  return send('app.init', payload)
 }
 
 export default {

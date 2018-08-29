@@ -14,6 +14,7 @@ Object.defineProperty(coinview, 'app', {
 coinview.init = function (payload) {
   return bridge.init(payload).then(data => {
     _app = data
+    delete coinview.init
     return coinview
   })
 }
