@@ -1,11 +1,13 @@
 import coinview from './app'
 import {register} from './app'
-import methods from './methods'
+import _methods from './methods'
 
-methods.forEach(register)
+_methods.forEach(register)
 
 if (window) {
   window.coinview = coinview
 }
 
 export default coinview
+
+export const methods = _methods
