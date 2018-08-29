@@ -1,7 +1,7 @@
 {
   "name": "coinview",
   "version": "1.0.0",
-  "main": "dist/coinview.common.js",
+  "main": "dist/coinview.js",
   "scripts": {
     "build": "webpack --config webpack.config.js -p",
     "dev": "webpack --config webpack.config.js -w",
