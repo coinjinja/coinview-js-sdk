@@ -8,9 +8,9 @@ export default [
   'navigate.toggleNavBar',
   'ui.notice',
   'ui.confirm',
-  'utils.choosePhoto',
   'utils.setClipboard',
   'utils.share',
   'utils.scanQr',
-  'utils.openUrl',
+  'utils._choosePhoto',
+  'utils._openUrl',
 ]
