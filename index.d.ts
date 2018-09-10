@@ -1,6 +1,6 @@
 export default interface Coinview {
   readonly app: App,
-  init(config: Config): Promise<Coinview>
+  init(appId: string): Promise<Coinview>
   user: {
     profile(): Promise<UserProfile>
     assets(): Promise<ReadonlyArray<UserAsset>>
@@ -8,7 +8,7 @@ export default interface Coinview {
   }
   utils: {
     setClipboard(payload: string): Promise<void>
-    scanQr(): Promise<string | null>
+    scanQR(): Promise<string | null>
   }
   navigate: {
     back(): Promise<void>
@@ -19,18 +19,11 @@ export default interface Coinview {
   }
 }
 
-export interface methods {
-  [key: number]: string
-}
-
 interface App {
   name: string
-}
-
-interface Config {
-  appId: string,
-  name: string,
-  icon: string
+  iconUrl: string
+  locale: string
+  currency: string
 }
 
 interface UserProfile {
