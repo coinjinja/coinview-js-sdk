@@ -8,16 +8,20 @@
     "build:common": "TARGET=common rollup -c",
     "build:window": "TARGET=window rollup -c",
     "build": "rm -fr dist && npm run build:common && npm run build:window",
+    "test": "jest",
     "prepublish": "npm run build"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
+    "babel-core": "^7.0.0-0",
+    "babel-jest": "^23.4.2",
+    "jest": "^23.5.0",
     "rollup": "^0.65.0",
     "rollup-plugin-babel": "^4.0.2",
     "rollup-plugin-commonjs": "^9.1.6",
     "rollup-plugin-node-resolve": "^3.4.0",
-    "rollup-plugin-uglify": "^4.0.0"
+    "rollup-plugin-uglify": "^5.0.0"
   },
   "dependencies": {
     "uuid": "^3.3.2"
