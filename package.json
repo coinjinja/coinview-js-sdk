@@ -1,5 +1,5 @@
 {
-  "name": "coinview",
+  "name": "@coinjinja/coinview-sdk",
   "version": "1.0.0-dev",
   "main": "dist/coinview.common.js",
   "scripts": {
