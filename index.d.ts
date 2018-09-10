@@ -1,6 +1,6 @@
 export default interface Coinview {
-  readonly app: App,
   init(appId: string): Promise<Coinview>
+  app(): Promise<App>
   user: {
     profile(): Promise<UserProfile>
     assets(): Promise<ReadonlyArray<UserAsset>>
@@ -49,7 +49,7 @@ interface PaymentPayload {
   assetId: string
   amount: number
   memo?: string
-  desc: string
+  description: string
 }
 
 interface PaymentSnapshot {
