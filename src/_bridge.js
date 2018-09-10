@@ -14,7 +14,10 @@ function _send (method, payload, cb) {
 }
 
 function send (method, payload) {
+  let time = 0
+
   return new Promise(function (resolve, reject) {
+
     function cb (error, data) {
       if (error) {
         reject(error)
@@ -23,15 +26,18 @@ function send (method, payload) {
       }
     }
 
-    function sending () {
+    function _resolve () {
       if (window.originalPostMessage) {
         _send(method, payload, cb)
+      } else if (time > 3000) {
+        reject(new Error('Timeout'))
       } else {
-        setTimeout(sending, 10)
+        time += 10
+        setTimeout(_resolve, 10)
       }
     }
 
-    sending()
+    _resolve()
   })
 }
 

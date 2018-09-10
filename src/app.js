@@ -3,6 +3,7 @@ import bridge from './_bridge'
 const coinview = {}
 
 let _app = null
+let _inited = false
 
 // (readonly) coinview.app
 Object.defineProperty(coinview, 'app', {
@@ -12,11 +13,24 @@ Object.defineProperty(coinview, 'app', {
 })
 
 coinview.init = function (appId) {
-  if (_app) {
+  if (_inited) {
     return new Promise(function (resolve, reject) {
-      resolve(coinview)
+      let time = 0
+
+      function _resolve () {
+        if (_app) {
+          resolve(coinview)
+        } else if (time > 3000) {
+          reject(new Error('Timeout'))
+        } else {
+          time += 10
+          setTimeout(_resolve, 10)
+        }
+      }
+      _resolve()
     })
   }
+  _inited = true
   return bridge.init({ appId }).then(data => {
     _app = data
     return coinview

@@ -1,6 +1,8 @@
 {
   "name": "@coinjinja/coinview-sdk",
   "version": "1.0.0-dev",
+  "author": "coinjinja",
+  "license": "MIT",
   "main": "dist/coinview.common.js",
   "scripts": {
     "build:common": "TARGET=common rollup -c",
