@@ -11,10 +11,14 @@ Object.defineProperty(coinview, 'app', {
   }
 })
 
-coinview.init = function (payload) {
-  return bridge.init(payload).then(data => {
+coinview.init = function (appId) {
+  if (_app) {
+    return new Promise(function (resolve, reject) {
+      resolve(coinview)
+    })
+  }
+  return bridge.init({ appId }).then(data => {
     _app = data
-    delete coinview.init
     return coinview
   })
 }
