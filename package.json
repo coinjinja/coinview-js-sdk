@@ -8,7 +8,8 @@
     "build:common": "TARGET=common rollup -c",
     "build:window": "TARGET=window rollup -c",
     "build": "rm -fr dist && npm run build:common && npm run build:window",
-    "test": "jest",
+    "test": "jest --coverage",
+    "test:unit": "jest",
     "prepublish": "npm run build"
   },
   "devDependencies": {

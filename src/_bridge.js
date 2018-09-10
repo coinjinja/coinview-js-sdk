@@ -63,7 +63,7 @@ function receive (data) {
   }
 }
 
-function init (payload = {}) {
+function init (payload) {
   window.document.addEventListener('message', (e) => {
     const { data } = e
     receive(data)
