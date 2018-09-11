@@ -1,6 +1,6 @@
 {
   "name": "@coinjinja/coinview-sdk",
-  "version": "1.0.0-dev",
+  "version": "1.0.1-dev",
   "author": "coinjinja",
   "license": "MIT",
   "main": "dist/coinview.common.js",
