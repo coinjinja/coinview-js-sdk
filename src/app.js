@@ -11,8 +11,8 @@ coinview.init = function (appId) {
       resolve(coinview)
     })
   }
-  _inited = true
   return bridge.init({ appId }).then(data => {
+    _inited = true
     _app = data
     return coinview
   })
