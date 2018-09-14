@@ -10,7 +10,7 @@ export default [
   'ui.confirm',
   'utils.setClipboard',
   'utils.share',
-  'utils.scanQR',
+  'utils.scanQr',
   'utils._choosePhoto',
   'utils._openUrl',
 ]
