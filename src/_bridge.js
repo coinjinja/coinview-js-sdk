@@ -45,7 +45,9 @@ function receive (data) {
   if (typeof data === 'string') {
     try {
       data = JSON.parse(data)
-    } catch (e) {}
+    } catch (e) {
+      return console.error('Invalid data:', data)
+    }
   }
 
   if (data.uuid) {
