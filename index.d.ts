@@ -9,6 +9,12 @@ export default interface Coinview {
   utils: {
     setClipboard(payload: string): Promise<void>
     scanQR(): Promise<string | null>
+    screenshot(): Promise<string>
+    SVGPathSegArcRel(payload: SharePayload): Promise<void>
+  }
+  ui: {
+    notice(payload: NoticePayload): Promise<void>
+    confirm(payload: ConfirmPayload): Promise<void>
   }
   navigate: {
     back(): Promise<void>
@@ -58,4 +64,23 @@ interface PaymentSnapshot {
   assetId: string
   mixinId: string
   amount: number
+}
+
+interface NoticePayload {
+  title: string
+  content: string
+  button: string
+}
+
+interface ConfirmPayload {
+  title: string
+  content: string
+  confirmButton: string
+  cancelButton: string
+}
+
+interface SharePayload {
+  text?: string
+  link?: string
+  image?: string
 }
