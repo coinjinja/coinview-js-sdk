@@ -1,28 +1,34 @@
-export default interface Coinview {
-  init(appId: string): Promise<Coinview>
-  app(): Promise<App>
-  user: {
-    profile(): Promise<UserProfile>
-    assets(): Promise<ReadonlyArray<UserAsset>>
-    address(assetId: string): Promise<UserAddress>
-  }
-  utils: {
-    setClipboard(payload: string): Promise<void>
-    scanQR(): Promise<string | null>
-    screenshot(): Promise<string>
-    SVGPathSegArcRel(payload: SharePayload): Promise<void>
-  }
-  ui: {
-    notice(payload: NoticePayload): Promise<void>
-    confirm(payload: ConfirmPayload): Promise<void>
-  }
-  navigate: {
-    back(): Promise<void>
-    close(): Promise<void>
-  }
-  payment: {
-    create(payload: PaymentPayload): Promise<PaymentSnapshot>
-  }
+export as namespace Coinview
+
+export function init(appId: string): Promise<void>
+
+export function app(): Promise<App>
+
+export namespace user {
+  export function profile(): Promise<UserProfile>
+  export function assets(): Promise<ReadonlyArray<UserAsset>>
+  export function address(assetId: string): Promise<UserAddress>
+}
+
+export namespace utils {
+  export function setClipboard(payload: string): Promise<void>
+  export function scanQR(): Promise<string | null>
+  export function screenshot(): Promise<string>
+  export function share(payload: SharePayload): Promise<void>
+}
+
+export namespace ui {
+  export function notice(payload: NoticePayload): Promise<void>
+  export function confirm(payload: ConfirmPayload): Promise<void>
+}
+
+export namespace navigate {
+  export function back(): Promise<void>
+  export function close(): Promise<void>
+}
+
+export namespace payment {
+  export function create(payload: PaymentPayload): Promise<PaymentSnapshot>
 }
 
 interface App {

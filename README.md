@@ -7,7 +7,7 @@
 Get from CDN:
 
 ```
-NOT READY
+https://unpkg.com/@coinjinja/coinview-sdk@1.0.7-dev/dist/coinview.min.js
 ```
 
 Get from NPM:
@@ -29,6 +29,10 @@ const coinview = require('@coinjinja/coinview-sdk')
 ```
 
 If you are using the SDK via CDN, it is available on `window`:
+
+```html
+<script src="https://unpkg.com/@coinjinja/coinview-sdk@1.0.7-dev/dist/coinview.min.js"></script>
+```
 
 ```js
 const coinview = window.coinview
@@ -195,7 +199,56 @@ coinview.payment.create(payload).then(payment => {
 
 ### `coinview.navigate.back()`
 
+Navigation back.
+
 ### `coinview.navigate.close()`
+
+Navigation close.
+
+### `coinview.ui.notice(payload)`
+
+It shows an alert message:
+
+```js
+/*
+const payload = {
+  title: string
+  content: string
+  button: string
+}
+*/
+
+const payload = {
+  title: 'Notice',
+  content: 'You have done something wrong',
+  button: 'Ok'
+}
+coinview.ui.notice(payload)
+```
+
+### `coinview.ui.confirm(payload)`
+
+It shows a confirm message:
+
+```js
+/*
+const payload = {
+  title: string
+  content: string
+  confirmButton: string
+  cancelButton: string
+}
+*/
+
+const payload = {
+  title: 'Alert',
+  content: 'Are you sure you want to delete it?',
+  confirmButton: 'Sure',
+  cancelButton: 'Cancel'
+}
+const answer = await coinview.ui.confirm(payload)
+// true or false
+```
 
 ### `coinview.utils.scanQR()`
 

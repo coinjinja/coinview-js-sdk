@@ -10,7 +10,7 @@ export default [
   'utils.setClipboard',
   'utils.screenshot',
   'utils.share',
-  'utils.scanQr',
+  'utils.scanQR',
   'utils._choosePhoto',
   'utils._openUrl',
 ]
