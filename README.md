@@ -1,6 +1,6 @@
 # Coinview SDK
 
-> Client side JS SDK to create Coinview DApps.
+> Client side JS SDK for creating CoinView DApps.
 
 ## Install
 
@@ -18,7 +18,7 @@ npm install @coinjinja/coinview-sdk --save
 
 ## Guide
 
-Make sure you have installed **coinview-sdk**. If you installed the SDK
+Make sure you have installed the **coinview-sdk**. If you installed the SDK
 via npm, you can import it:
 
 ```js
@@ -40,8 +40,8 @@ const coinview = window.coinview
 
 ### Initialize
 
-To use coinview SDK, an `APP ID` is required, you can find or create your
-App [TODO]. Then, use `.init` to initialize coinview SDK:
+To use the CoinView SDK, an `APP ID` is required, you can find or create your
+App [TODO]. Then, use `.init` to initialize the CoinView SDK:
 
 ```js
 coinview.init(YOUR_APP_ID)
@@ -51,7 +51,7 @@ Note, the `.init` method should be called before using any other methods.
 
 ### Example
 
-Here is a full example on how to use coinview SDK:
+Here is a full example of how to use the CoinView SDK:
 
 ```js
 import coinview from '@coinjinja/coinview-sdk'
