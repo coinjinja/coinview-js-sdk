@@ -36,6 +36,7 @@ interface App {
   iconUrl: string
   locale: string
   currency: string
+  params: string
 }
 
 interface UserProfile {

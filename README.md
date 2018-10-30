@@ -107,6 +107,7 @@ coinview.app().then(app => {
   iconUrl: 'https://...',
   locale: 'ja',
   currency: 'JPY'
+  params: 'customParam1=xxx&customParam2=xxx',
 }
 */
 ```
