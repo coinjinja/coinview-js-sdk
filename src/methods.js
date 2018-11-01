@@ -2,6 +2,7 @@ export default [
   'user.profile',
   'user.assets',
   'user.address',
+  'user.signMessage',
   'payment.create',
   'navigate.back',
   'navigate.close',

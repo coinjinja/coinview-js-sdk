@@ -8,6 +8,7 @@ export namespace user {
   export function profile(): Promise<UserProfile>
   export function assets(): Promise<ReadonlyArray<UserAsset>>
   export function address(assetId: string): Promise<UserAddress>
+  export function signMessage(payload: SignMessagePayload): Promise<string>
 }
 
 export namespace utils {
@@ -90,4 +91,12 @@ interface SharePayload {
   text?: string
   link?: string
   image?: string
+}
+
+interface SignMessagePayload {
+  method: string
+  path: string
+  content: string
+  timestamp?: number
+  expire: number
 }
