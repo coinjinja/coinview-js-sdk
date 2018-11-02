@@ -7,7 +7,7 @@
 Get from CDN:
 
 ```
-https://unpkg.com/@coinjinja/coinview-sdk@1.0.8-dev/dist/coinview.min.js
+https://unpkg.com/@coinjinja/coinview-sdk@1.0.10-dev/dist/coinview.min.js
 ```
 
 Get from NPM:
@@ -31,7 +31,7 @@ const coinview = require('@coinjinja/coinview-sdk')
 If you are using the SDK via CDN, it is available on `window`:
 
 ```html
-<script src="https://unpkg.com/@coinjinja/coinview-sdk@1.0.8-dev/dist/coinview.min.js"></script>
+<script src="https://unpkg.com/@coinjinja/coinview-sdk@1.0.10-dev/dist/coinview.min.js"></script>
 ```
 
 ```js
