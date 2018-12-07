@@ -6,6 +6,7 @@ export default [
   'payment.create',
   'navigate.back',
   'navigate.close',
+  'navigate.openWallet',
   'ui.notice',
   'ui.confirm',
   'utils.setClipboard',

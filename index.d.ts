@@ -26,6 +26,7 @@ export namespace ui {
 export namespace navigate {
   export function back(): Promise<void>
   export function close(): Promise<void>
+  export function openWallet(): Promise<void>
 }
 
 export namespace payment {
