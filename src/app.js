@@ -5,13 +5,26 @@ const coinview = {}
 let _app = null
 let _inited = false
 
-coinview.init = function (appId) {
+coinview.log = () => undefined
+
+coinview.init = function (appId, debug, host) {
   if (_inited) {
     return new Promise(function (resolve, reject) {
       resolve(coinview)
     })
   }
-  return bridge.init({ appId }).then(data => {
+  if (debug && host) {
+    coinview.log = function (tag, ...args) {
+      return bridge.send('console', { tag, args })
+    }
+    window.onerror = function(msg, url, line, col, error) {
+      return bridge.send('error', {
+        msg, url, line, col, error,
+        stack: error.stack,
+      })
+    };
+  }
+  return bridge.init({ appId, debug, host }).then(data => {
     _inited = true
     _app = data
     return coinview

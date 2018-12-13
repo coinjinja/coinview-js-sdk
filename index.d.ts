@@ -1,8 +1,10 @@
 export as namespace Coinview
 
-export function init(appId: string): Promise<void>
+export function init(appId: string, debug?: boolean, host?: string): Promise<void>
 
 export function app(): Promise<App>
+
+export function log(): Promise<void>
 
 export namespace user {
   export function profile(): Promise<UserProfile>
