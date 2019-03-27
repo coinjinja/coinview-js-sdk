@@ -3,22 +3,25 @@ import { VERSION } from './_const'
 
 const callbacks = {}
 
-function _send (method, payload, cb) {
+function _send(method, payload, cb) {
   const uuid = uuidv4()
   callbacks[uuid] = cb
-  const data = {method, uuid}
+  const data = { method, uuid }
   if (payload) {
     data.payload = payload
   }
-  window.postMessage(JSON.stringify(data))
+  if (window.ReactNativeWebView) {
+    window.ReactNativeWebView.postMessage(JSON.stringify(data))
+  } else {
+    window.postMessage(JSON.stringify(data))
+  }
 }
 
-function send (method, payload) {
+function send(method, payload) {
   let time = 0
 
-  return new Promise(function (resolve, reject) {
-
-    function cb (error, data) {
+  return new Promise(function(resolve, reject) {
+    function cb(error, data) {
       if (error) {
         reject(error)
       } else {
@@ -26,22 +29,21 @@ function send (method, payload) {
       }
     }
 
-    function _resolve () {
-      if (window.originalPostMessage) {
-        _send(method, payload, cb)
+    function _resolve() {
+      if (window.originalPostMessage || window.ReactNativeWebView) {
+        return _send(method, payload, cb)
       } else if (time > 3000) {
-        reject(new Error('Timeout'))
-      } else {
-        time += 10
-        setTimeout(_resolve, 10)
+        return reject(new Error('Timeout'))
       }
+      time += 10
+      return setTimeout(_resolve, 10)
     }
 
     _resolve()
   })
 }
 
-function receive (data) {
+function receive(data) {
   if (typeof data === 'string') {
     try {
       data = JSON.parse(data)
@@ -63,8 +65,8 @@ function receive (data) {
   }
 }
 
-function init (payload) {
-  window.document.addEventListener('message', (e) => {
+function init(payload) {
+  window.document.addEventListener('message', e => {
     const { data } = e
     receive(data)
   })
@@ -77,5 +79,5 @@ function init (payload) {
 export default {
   send,
   receive,
-  init
+  init,
 }
